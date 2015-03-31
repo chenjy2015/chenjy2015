@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CJY 记事本</string>
+    <string name="action_settings">设置</string>
+    <string name="hello_world">世界 你好！</string>
+    <string name="start_app">启动应用中 .... </string>
+    <string name="welcome">欢迎进入 CJY记事本! </string>
+    <string name="create_gson">生成Json！ </string>
+    <string name="read_gson">读取Json! </string>
+    <string name="hint_gson">请输入字符 并以空格结束 然后点击"生成Json"按钮" </string>
+
+</resources>

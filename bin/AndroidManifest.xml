@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cjy.notebook"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:name=".global.CJYApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/ThemeActivityTranslate" >
+        <activity
+            android:name=".StartActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ImageListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".GsonActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.cjy.notebook.media.VideoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.cjy.notebook.media.MusicActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name="com.cjy.notebook.service.IService" >
+            <intent-filter>
+                <action android:name="cjy.intent.action.service" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

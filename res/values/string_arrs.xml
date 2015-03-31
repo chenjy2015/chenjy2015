@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="application_list">
+	    <item name="one">笔记列表</item>
+	    <item name="two">应用列表</item>
+	    <item name="three">后台清除</item>
+	    <item name="fore">清除数据</item>
+	</string-array>
+	<string-array name="setting_list">
+	    <item name="one">切换账号</item>
+	    <item name="two">查看图片</item>
+	    <item name="three">更新数据</item>
+	    <item name="fore">GSON界面</item>
+	    <item name="five">视频录制</item>
+	    <item name="six">音乐播放</item>
+	    <item name="serven">安全退出</item>
+	</string-array>
+</resources>

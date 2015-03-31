@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/selector_list_note"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/dimen4"
+        android:layout_weight="2"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:text="title"
+            android:layout_weight="1"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/dimen15" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:text="content"
+            android:layout_weight="1"
+            android:textColor="@color/blue_litte"
+            android:textSize="@dimen/dimen12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/dimen2"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/time_create"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="sss"
+            android:textColor="@color/green"
+            android:textSize="@dimen/dimen10" />
+
+        <TextView
+            android:id="@+id/time_change"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="right"
+            android:gravity="center"
+             android:layout_weight="1"
+            android:text="sss"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/dimen10" />
+    </LinearLayout>
+
+</LinearLayout>

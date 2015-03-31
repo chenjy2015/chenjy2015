@@ -1,0 +1,92 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <!-- 自定义Activity切换动画  进入与退出左右平移效果 -->
+    <style name="ThemeActivityTranslate" mce_bogus="1" parent="android:Theme">
+        <item name="android:windowAnimationStyle">@style/AnimationActivityTranslate</item>
+        <!-- 改变标题栏的高度 -->
+        <item name="android:windowTitleSize">50dp</item>
+        <!-- 改变文件大小 -->
+        <item name="android:textSize">10sp</item>
+        <item name="android:windowTitleBackgroundStyle">@drawable/title_bg</item>
+    </style>
+
+    <style name="AnimationActivityTranslate" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/translate_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/alpha_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/alpha_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/translate_out</item>
+    </style>
+
+    <style name="DialogText.Title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DialogText">
+        <item name="android:textColor">#FF000000</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- 自定义Dialog风格 -->
+    <style name="CustomDialog" parent="@android:Theme.Dialog">
+
+        <!-- windowFrame框为无 -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- 除去背景 -->
+        <item name="android:windowBackground">@drawable/title_bg</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 去掉覆盖层 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 设置背景颜色 -->
+        <item name="android:background">#00000000</item>
+    </style>
+
+    <!-- 自定义ProgressDialog风格 -->
+    <style name="CustomProgressDialog" parent="@android:Theme.Dialog">
+
+        <!-- windowFrame框为无 -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- 除去背景 -->
+        <item name="android:windowBackground">@color/translucent</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 去掉覆盖层 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 设置背景颜色 -->
+        <item name="android:background">#00000000</item>
+    </style>
+
+    <!-- Dialog动画 -->
+    <style name="dialogWindowAnim" parent="android:Animation">
+
+        <!-- 进入时的动画 -->
+        <item name="android:windowEnterAnimation">@anim/dialog_in</item>
+        <!-- 退出时的动画 -->
+        <item name="android:windowExitAnimation">@anim/dialog_out</item>
+    </style>
+
+</resources>

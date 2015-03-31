@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>记事本列表</title>
+
+<script type="text/javascript" src="js/documentTool.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.js"></script>
+<script type="text/javascript" >
+	
+/**根据输入的行与列的值创建表格*/
+function createTab4()
+{
+	tabNode = doc.createElement("table");
+	//tabNode.id = "tableId";//通过属性设置ID值
+	tabNode.setAttribute("id","tabid");//通过方法设置ID值
+	
+	var row = byName("rownum")[0].value;
+	var col = byName("colnum")[0].value;
+	
+	for(var x=0; x<row; x++){
+		trNode = tabNode.insertRow();
+		for(var y=0; y<col; y++){
+			tdNode = trNode.insertCell();
+			///tdNode.innerHTML = x+"*"+y+"="+x*y;
+			tdNode.innerHTML = (x+1) +"..."+ (y+1);
+		}		
+	}
+	
+	byTag("div")[0].appendChild(tabNode);
+	
+	//alert(event.srcElement.nodeName);
+	
+	//event.srcElement.disabled = true; //创建完一次后 此按钮失效
+}
+
+/**删除行*/
+function delRow()
+{
+	var tabNode = byId("tabid");
+	if(tabNode == null){
+		alert("表格不存在");
+		return ;
+	}
+	var rownum = byName("delrow")[0].value;
+	if(rownum >0 && rownum <= tabNode.rows.length){
+		tabNode.deleteRow(rownum -1);
+	}else{
+		alert("删除行不存在");
+	}		
+}
+
+/**删除列*/
+function delCol()
+{
+	var tabNode = byId("tabid");
+	if(tabNode == null){
+		alert("表格不存在");
+		return ;
+	}
+	
+	var clonum = byName("delcol")[0].value;
+	if(clonum >0 && clonum<tabNode.rows[0].cells.length){
+		for(var x=0; x<tabNode.rows.length; x++){
+			tabNode.rows[x].deleteCell(clonum-1);
+		}
+	}else{
+		alert("删除列不存在");
+	}
+	
+}
+	
+
+</script>
+
+</head>
+
+
+<body>
+
+<!-- 通过页面的按钮可以动态的创建一个表格-->
+行：<input type="text" name="rownum"/><br/>
+列：<input type="text" name="colnum"/><br/>
+<input type="button" value="创建表格" onclick="createTab4()" /><br/>
+
+<input type="text" name="delrow"/>
+<input type="button" value="删除行" onclick="delRow()"/><br/>
+<input type="text" name="delcol"/>
+<input type="button" value="删除列" onclick="delCol()"/><br/>
+
+<div>
+</div>
+
+
+</body>
+</html>

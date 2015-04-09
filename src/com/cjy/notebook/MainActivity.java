@@ -234,6 +234,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 				case 3:
 					noteFragment.handler.sendEmptyMessage(Common.DELETE);
 					break;
+				case 4:
+					Intent webIntent = new Intent();
+					webIntent.setClass(getApplicationContext(), JavaScriptWithWebActivity.class);
+					startActivity(webIntent);
+					break;
 				default:
 					setSelectorItem(2);
 					left_list.setItemChecked(2, false);

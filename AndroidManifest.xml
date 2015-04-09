@@ -46,6 +46,10 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name=".JavaScriptWithWebActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.cjy.notebook.media.VideoActivity"
             android:screenOrientation="portrait" >
         </activity>
@@ -53,6 +57,7 @@
             android:name="com.cjy.notebook.media.MusicActivity"
             android:screenOrientation="portrait" >
         </activity>
+     
 
         <service android:name="com.cjy.notebook.service.IService" >
             <intent-filter>

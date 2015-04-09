@@ -1,0 +1,55 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" language="javascript">
+
+function htmlcalljava1(){
+	var text = window.jsObj.htmlcalljava1();
+	document.getElementById('textid1').value = text;
+}	
+
+function htmlcalljava2(params){
+	window.jsObj.htmlcalljava2(params);
+}	
+
+function javacallhtml1(){
+	document.getElementById("textid1").value = "Java call Html"; 	
+}
+
+function javacallhtml2(params){
+	document.getElementById("textid2").value = params;
+}
+
+function javacallhtmlbybutton1(){
+	document.getElementById("textid1").value = "java call html by button1";
+}
+
+function javacallhtmlbybutton2(params){
+	document.getElementById("textid2").value = "java call html by button2";
+}
+
+	
+
+	
+</script>
+
+</head>
+
+<body>
+
+<div>
+
+<input type="text" value="this is html text" id="textid1" width="200"></input>
+<input type="button" value="calljava1" id="calljava1" onclick="htmlcalljava1()"></input>
+
+</br>
+
+<input type="text" value="this is html text" id="textid2" width="200"></input>
+<input type="button" value="calljava2" id="calljava2" onclick="htmlcalljava2('this message is come from html')"></input>
+
+<div>
+
+<body>
+
+
+</html>

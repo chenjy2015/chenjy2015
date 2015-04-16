@@ -5,14 +5,19 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.ArrayMap;
+import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
-@SuppressLint({ "JavascriptInterface", "SetJavaScriptEnabled" })
+@SuppressLint({ "JavascriptInterface", "SetJavaScriptEnabled", "NewApi" })
 public class JavaScriptWithWebActivity extends Activity implements
 		OnClickListener {
 
@@ -36,6 +41,22 @@ public class JavaScriptWithWebActivity extends Activity implements
 		mWebSetting.setDefaultTextEncodingName("utf-8");
 		mWeb.addJavascriptInterface(new JavaScriptObjectInterface(), "jsObj");
 		mWeb.loadUrl("file:///android_asset/JsAndWebViewTestDemo.html");
+		mWeb.evaluateJavascript("(function(){return \'this\';}) ();", new ValueCallback<String>() {
+			
+			@Override
+			public void onReceiveValue(String value) {
+				// TODO Auto-generated method stub
+				Log.e("JavaScriptWithWebActivity", value);
+			}
+		});
+		
+		SparseArray<String> sa = new SparseArray<String>();
+		sa.put(0, "0");
+		ArrayMap<String, Object> amap = new ArrayMap<String, Object>();
+		amap.put("", "");
+		SparseIntArray sia = new SparseIntArray();
+		sia.append(0, 0);
+		
 	}
 
 	class JavaScriptObjectInterface {

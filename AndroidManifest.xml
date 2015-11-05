@@ -4,6 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -50,7 +51,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.cjy.notebook.media.VideoActivity"
+            android:name="com.cjy.notebook.media.VideoActivity1"
             android:screenOrientation="portrait" >
         </activity>
         <activity

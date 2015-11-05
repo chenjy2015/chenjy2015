@@ -3,21 +3,16 @@ package com.cjy.notebook.media;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import com.cjy.notebook.R;
 import com.cjy.notebook.adapter.MusicListAdapter;
 import com.cjy.notebook.helper.ClassHelperUtils;
 import com.cjy.notebook.object.MusicVO;
 import com.cjy.notebook.utils.DialogUtils;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
-import android.media.MediaRecorder.AudioSource;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;

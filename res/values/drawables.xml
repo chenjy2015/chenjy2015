@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="transparent" type="drawable">#00000000</item>
+    <item name="drawable_insmsbgcolor" type="drawable">#ffe4e4e4</item>
+
+</resources>

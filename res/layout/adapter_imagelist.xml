@@ -5,7 +5,7 @@
     android:background="@drawable/selector_list_note"
     android:orientation="horizontal" >
 
-    <com.cjy.notebook.image.RoundImageView
+    <com.cjy.notebook.widget.image.RoundImageView
         android:id="@+id/iv"
         android:layout_width="80dp"
         android:layout_height="80dp"

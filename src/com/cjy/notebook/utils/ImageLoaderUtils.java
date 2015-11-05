@@ -1,9 +1,14 @@
 package com.cjy.notebook.utils;
 
+
 /**
+ * @author chenjiayou
+ * @feature NotesListActivity 主界面
+ * @createTime: 2014.11.3
+ * 
  * 需要在Application中配置 
  * ImageLoaderUtils.mContext = getApplicationContext;
- * */
+ */
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

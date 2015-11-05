@@ -1,4 +1,4 @@
-package com.cjy.notebook.image;
+package com.cjy.notebook.widget.image;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

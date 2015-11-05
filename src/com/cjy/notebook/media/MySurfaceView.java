@@ -4,11 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-
 import com.cjy.notebook.config.Common;
 import com.cjy.notebook.global.CJYApplication;
-
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -18,15 +15,10 @@ import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
-import android.media.MediaRecorder.OnInfoListener;
-import android.os.Environment;
-import android.provider.MediaStore.Audio.Media;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.Toast;
-
 
 public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback{
 
@@ -35,17 +27,19 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 	private SurfaceHolder mSurfaceHolder;
 	private MediaRecorder mMediaRecorder;
 	private StartBroadCast mBroadCast;
-	private ScheduledExecutorService  mExectuor;//java 5.0自带线程池管理服务类
+	private ScheduledExecutorService  mExectuor;//java 5.0 线程池管理服务类
+	private Context mContext;
 	
 	@SuppressWarnings("deprecation")
 	public MySurfaceView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
+		this.mContext = context;
 		mSurfaceHolder = this.getHolder();
 		mSurfaceHolder.addCallback(this);
 		mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		//initMediaRecorder();
-		initBroadCast();
+		registerBroadCast();
 		mExectuor = Executors.newScheduledThreadPool(3);//初始化线程池数量
 	}
 
@@ -55,20 +49,21 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 		
 	}
 
-	private void initBroadCast(){
+	private void registerBroadCast(){
 		mBroadCast = new StartBroadCast();
 		IntentFilter filter = new IntentFilter();
 		filter.addAction(Common.VIDEO_START_PLAYER);
 		filter.addAction(Common.VIDEO_STOP_PLAYER);
 		filter.addAction(Common.VIDEO_START_RECORDING);
 		filter.addAction(Common.VIDEO_STOP_RECORDING);
+		//filter.addAction(Common.ACTION_STOP_MEDIA_ACTIVITY);
 		getContext().registerReceiver(mBroadCast, filter);
 	}
 	
 	@Override
-	public void surfaceCreated(SurfaceHolder arg0) {
+	public void surfaceCreated(SurfaceHolder holder) {
 		// TODO Auto-generated method stub
-		
+		mSurfaceHolder = holder;
 		
 		/** 打开相机 **/
 		mCamera = Camera.open();
@@ -162,42 +157,27 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 	@SuppressLint("NewApi")
 	private void initMediaRecorder(){
 		  CamcorderProfile mProfile = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);  
-		      
-		    //1st. Initial state  
-		    mMediaRecorder = new MediaRecorder();  
-			mCamera.unlock();
-		    mMediaRecorder.setCamera(mCamera);  
-		      
-		    //2st. Initialized state  
-		    mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);  
-		    mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA); 
-//		    mMediaRecorder.setOrientationHint(90);//视频旋转90度
-		      
-		    //3st. config  
-		      mMediaRecorder.setOutputFormat(mProfile.fileFormat);  
-		      mMediaRecorder.setAudioEncoder(mProfile.audioCodec);  
-		      mMediaRecorder.setVideoEncoder(mProfile.videoCodec);  
-		      mMediaRecorder.setOutputFile(getParentFilePath()+File.separator+System.currentTimeMillis()+".mp4");  
-		      mMediaRecorder.setVideoSize(mProfile.videoFrameWidth, mProfile.videoFrameHeight);  
-		      mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);  
-		      mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);  
-		      mMediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);  
-		      mMediaRecorder.setAudioChannels(mProfile.audioChannels);  
-		      mMediaRecorder.setAudioSamplingRate(mProfile.audioSampleRate);  
-		  
-		      
-		    mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());  
-		      
-		    try {  
-		    mMediaRecorder.prepare();  
-		    mMediaRecorder.start();  
-		} catch (IllegalStateException e) {  
-		    // TODO Auto-generated catch block  
-		    e.printStackTrace();  
-		} catch (IOException e) {  
-		    // TODO Auto-generated catch block  
-		    e.printStackTrace();  
-		} 
+		  //1st. Initial state  
+		  mMediaRecorder = new MediaRecorder();  
+		  mCamera.unlock();
+		  mMediaRecorder.setCamera(mCamera);  
+		  //2st. Initialized state  
+		  mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);  
+		  mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA); 
+		  //3st. config  
+	      mMediaRecorder.setOutputFormat(mProfile.fileFormat);  
+	      mMediaRecorder.setAudioEncoder(mProfile.audioCodec);  
+	      mMediaRecorder.setVideoEncoder(mProfile.videoCodec);  
+	      String pathname = File.separator+System.currentTimeMillis()+".mp4";
+	      mMediaRecorder.setOutputFile(getParentFilePath()+pathname);  
+	      mMediaRecorder.setVideoSize(mProfile.videoFrameWidth, mProfile.videoFrameHeight);  
+	      mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);  
+	      mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);  
+	      mMediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);  
+	      mMediaRecorder.setAudioChannels(mProfile.audioChannels);  
+	      mMediaRecorder.setAudioSamplingRate(mProfile.audioSampleRate);  
+	      mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());  
+		
 	}
 	
 	private void startRecording(){
@@ -210,7 +190,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 				mMediaRecorder.start();
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
-				Log.e("MediaRecorder start fail ", e.toString());
+				Log.e("MediaRecorder start fail ", e.getMessage()+"");
 				if (mMediaRecorder!=null) {
 					mMediaRecorder.stop();
 					mMediaRecorder.release();
@@ -218,7 +198,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
-				Log.e("MediaRecorder start fail ", e.toString());
+				Log.e("MediaRecorder start fail ", e.getMessage());
 				if (mMediaRecorder!=null) {
 					mMediaRecorder.stop();
 					mMediaRecorder.release();
@@ -235,6 +215,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 		}
 	}
 	
+	
 	/**
 	 * 接受主界面发送的广播信息
 	 * @author chenjiayou
@@ -246,26 +227,27 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 		public void onReceive(Context context, Intent intent) {
 			// TODO Auto-generated method stub
 			if(intent.getAction().equals(Common.VIDEO_START_RECORDING)){
-				mExectuor.submit(new Runnable() {
-					
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-						startRecording();
-					}
-				});
+//				mExectuor.submit(new Runnable() {
+//					
+//					@Override
+//					public void run() {
+//						// TODO Auto-generated method stub
+//						startRecording();
+//					}
+//				});
+				startRecording();
 			}else if(intent.getAction().equals(Common.VIDEO_STOP_RECORDING)){
-				mExectuor.submit(new Runnable() {
-					
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-						stopRecording();
-					}
-				});
+//				mExectuor.submit(new Runnable() {
+//					
+//					@Override
+//					public void run() {
+//						// TODO Auto-generated method stub
+//						stopRecording();
+//					}
+//				});
+				stopRecording();
 			}
 		}
-		
 	};
 	
 	/**
@@ -273,11 +255,12 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 	 * @return
 	 */
 	private String getParentFilePath(){
-		String path = CJYApplication.getHelperUtis().getFitSdPath(getContext());
-		File file = new File(path);
+		String parentPath = CJYApplication.getHelperUtis().getFitSdPath(getContext());
+		File file = new File(parentPath+File.separator+"CJY_NOTEBOOK_MEDIA");
 		if(!file.exists()){
 			file.mkdirs();
 		}
+		String path = file.getAbsolutePath();
 		return path;
 	}
 }

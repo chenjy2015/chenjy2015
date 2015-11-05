@@ -16,9 +16,9 @@ import android.widget.TextView;
 import com.cjy.notebook.R;
 import com.cjy.notebook.config.Common;
 import com.cjy.notebook.global.CJYApplication;
-import com.cjy.notebook.image.RoundImageView;
 import com.cjy.notebook.object.FileVO;
 import com.cjy.notebook.utils.ImageLoaderUtils;
+import com.cjy.notebook.widget.image.RoundImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class ImageListAdapter extends BaseAdapter {

@@ -31,5 +31,6 @@ public class Common {
 	final public static String VIDEO_STOP_RECORDING = "video.stop.recording";//停止录制视频
 	final public static String VIDEO_START_PLAYER = "video.start.player";//开始播放视频
 	final public static String VIDEO_STOP_PLAYER = "video.stop.player";//停止视频播放
-	
+//	final public static String ACTION_STOP_MEDIA_SURFACEVIEW = "action_stop_media_surfaceview";//停止视频录制 释放资源 surfaceview端
+//	final public static String ACTION_STOP_MEDIA_ACTIVITY = "action_stop_media_activity";//停止视频录制 释放资源 activity端
 }

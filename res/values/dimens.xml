@@ -3,7 +3,6 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="shadow_width">3dp</dimen>
     <dimen name="slidingmenu_offset">100dp</dimen>
-
     <dimen name="login_textview_height">50dp</dimen>
     <dimen name="login_textview_paddingleft_and_right">50dp</dimen>
     <dimen name="login_button_width">169dp</dimen>
@@ -12,19 +11,14 @@
     <dimen name="login_company_logo_bg_margintop">10dp</dimen>
     <dimen name="login_logo_bg_margintop">20dp</dimen>
     <dimen name="login_logo_bg_height">140dp</dimen>
-    
     <dimen name="login_bt_textsize">18dp</dimen>
-    
     <dimen name="location_bg_height">86.6dp</dimen>
     <dimen name="locatin_margin_top">13dp</dimen>
     <dimen name="locatin_margin_left">13.3dp</dimen>
-    
     <dimen name="property_detial_item_height">45dp</dimen>
     <dimen name="property_detial_item_width">120dp</dimen>
     <dimen name="property_detial_item_textsize">17dp</dimen>
-    
     <dimen name="recent_task_title_height">45dp</dimen>
-    
     <dimen name="textsize30">30dp</dimen>
     <dimen name="textsize24">24dp</dimen>
     <dimen name="textsize26">26dp</dimen>
@@ -34,7 +28,6 @@
     <dimen name="textsize18">18dp</dimen>
     <dimen name="textsize20">20dp</dimen>
     <dimen name="textsize22">22dp</dimen>
-    
     <dimen name="dimen2">2dp</dimen>
     <dimen name="dimen4">4dp</dimen>
     <dimen name="dimen6">6dp</dimen>
@@ -54,5 +47,21 @@
     <dimen name="dimen150">150dp</dimen>
     <dimen name="dimen280">280dp</dimen>
     <dimen name="dimen200">200dp</dimen>
+
+    <!-- NiftyDialog -->
+    <dimen name="dialog_padding">25dp</dimen>
+    <dimen name="dialoghelper_item_minheight">60dp</dimen>
+    <dimen name="dialoghelper_item_text_size">15sp</dimen>
+    <dimen name="dialoghelper_item_layout_margin_left">10dp</dimen>
+    <dimen name="dialoghelper_item_layout_margin_right">10dp</dimen>
+    <dimen name="dialoghelper_item_layout_height">300dp</dimen>
+
+    <!-- DialogHelper -->
+    <dimen name="blobdialog_item_edit_height">40dp</dimen>
+    <dimen name="blobdialog_item_edit_margin_left">15dp</dimen>
+    <dimen name="blobdialog_item_edit_margin_right">15dp</dimen>
+    <dimen name="smallFontSize">13dp</dimen>
+    <dimen name="middleFontSize">16dp</dimen>
+    <dimen name="bigFontSize">20dp</dimen>
+
 </resources>
- 

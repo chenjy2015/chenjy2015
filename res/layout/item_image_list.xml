@@ -4,7 +4,7 @@
     android:layout_height="120dp"
     android:orientation="vertical" >
 
-    <com.cjy.notebook.image.RoundImageView
+    <com.cjy.notebook.widget.image.RoundImageView
         android:id="@+id/iv"
         android:layout_width="match_parent"
         android:layout_height="280dp"

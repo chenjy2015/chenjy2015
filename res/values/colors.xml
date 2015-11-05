@@ -1,31 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="red">#FF0000</color>
+     <!-- public color -->
     <!-- 红色 -->
-    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
     <!-- 白色 -->
-    <color name="blue_schedul">#79b5ec</color>
+    <color name="white">#FFFFFF</color>
     <!-- 黑色 -->
     <color name="black">#888888</color>
+    <!-- 纯黑色 -->
+    <color name="black_pure">#000000</color>
     <!-- 黄色 -->
     <color name="yellow">#FFFF00</color>
+    <!-- 浅蓝色 -->
+    <color name="blue_litter">#008ECC</color>
     <!-- 蓝色 -->
     <color name="blue">#3300FF</color>
+    <!-- 深蓝色 -->
+    <color name="blue_">#007bb0</color>
     <!-- 绿色 -->
     <color name="green">#00FF00</color>
+    <!-- 淡绿色 -->
+    <color name="green_litter">#69c27c</color>
     <!-- 紫色 -->
     <color name="violet">#6600FF</color>
     <!-- 褐色 -->
     <color name="brown">#714f16</color>
     <!-- 灰色 -->
     <color name="gray">#888888</color>
-
+    <!-- 浅灰色 -->
+    <color name="litte_gray">#e1e1e1</color>
+    <!-- 淡灰色 -->
+    <color name="light_gray">#f6f6f6</color>
+    <!-- 深灰色 -->
+    <color name="dark_grey">#333333</color>
+    <!-- 透明色 -->
+    <color name="dialogback">#7a510d</color>
+    <!-- 半透明色 -->
+    <color name="translucent">#00000000</color>
+    <color name="translucent_1">#e0000000</color>
+    <color name="launcher_point_releast">#daf0ee</color>
+    <color name="launcher_point_pressed">#98b0b0</color>
+    <color name="blue_text_color">#007FFF</color>
+    <color name="blue_text_color_pressed">#ffffff</color>
+   
+    <!-- 白色 -->
+    <color name="blue_schedul">#79b5ec</color>
     <!-- 淡蓝色 -->
     <color name="blue_litte">#007FFF</color>
-    <!-- 透明色 -->
-    <color name="translucent">#00000000</color>
 
-    <color name="blue_text_color_pressed">#ffffff</color>
-    
+    <!-- NiftyDialog -->
+    <color name="divider_color">#ffffff</color>
+    <color name="msg_color">#888888</color>
+    <color name="btn_press_color">#ffffffff</color>
+    <color name="btn_unpress_color">#22000000</color>
+    <color name="btn_stroke_color">#e1e1e1</color>
+    <color name="btn_background_narmal_color">#ffffffff</color>
+    <color name="btn_background_pressed_color">#e1e1e1</color>
+    <color name="text_color">#888888</color>
+
 </resources>

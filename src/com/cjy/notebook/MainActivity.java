@@ -7,7 +7,6 @@ package com.cjy.notebook;
  */
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import android.annotation.SuppressLint;
@@ -36,7 +35,6 @@ import android.widget.Toast;
 
 import com.cjy.notebook.adapter.DrawerLayoutAdapter;
 import com.cjy.notebook.adapter.NotesAdapter;
-import com.cjy.notebook.code.CommonCode;
 import com.cjy.notebook.config.Common;
 import com.cjy.notebook.database.DBOperate;
 import com.cjy.notebook.fragment.AppListFragment;
@@ -44,7 +42,7 @@ import com.cjy.notebook.fragment.NoteListFragment;
 import com.cjy.notebook.fragment.WebFragment;
 import com.cjy.notebook.global.CJYApplication;
 import com.cjy.notebook.media.MusicActivity;
-import com.cjy.notebook.media.VideoActivity;
+import com.cjy.notebook.media.VideoActivity1;
 import com.cjy.notebook.object.Notes;
 import com.cjy.notebook.utils.DialogUtils;
 
@@ -265,7 +263,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener,
 					break;
 				case 4:
 					Intent videoIntent = new Intent();
-					videoIntent.setClass(getApplicationContext(), VideoActivity.class);
+					videoIntent.setClass(getApplicationContext(), VideoActivity1.class);
 					startActivity(videoIntent);
 					break;
 				case 5:
